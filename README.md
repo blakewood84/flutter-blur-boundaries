@@ -1,6 +1,6 @@
 # flutter_blur_hash
 
-A new Flutter project.
+When using ImageFiltered and ImageFilter.blur() with sigmaX and sigmaY greater than 0, you are left with a pixalated border around the edges. To remove this we stretch the image and also use TileMode.decal inside of the ImageFilter.blur() constructor.
 
 ## Getting Started
 
