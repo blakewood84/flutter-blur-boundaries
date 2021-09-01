@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       home: MyHomePage(),
     );
@@ -40,15 +41,15 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Container(
               color: Colors.transparent,
-              height: size.height * .2,
+              height: 200,
               width: double.infinity,
               child: Stack(
                 children: [
                   Positioned.fill(
                     top: -20,
-                    left: -30,
-                    right: -30,
-                    bottom: -30,
+                    left: -20,
+                    right: -20,
+                    bottom: -20,
                     child: ImageFiltered(
                       imageFilter: ImageFilter.blur(sigmaX: 24, sigmaY: 24, tileMode: TileMode.decal),
                       child: Image.network('https://stock-dev.emanate.live/stock_artwork/QmVezpZ6MJf1LaqkomceYAd25td5YMtcFesgXNife9Fj7m_500x500.jpg', fit: BoxFit.fitWidth, height: 500, width: 500),
@@ -57,13 +58,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               )
             ),
-            Container(
-              color: Colors.red,
-              height: 300,
-              width: double.infinity,
-              child: Container(
-                child: Image.network('https://stock-dev.emanate.live/stock_artwork/QmVezpZ6MJf1LaqkomceYAd25td5YMtcFesgXNife9Fj7m_500x500.jpg', scale: 4, fit: BoxFit.cover,)),
-            ),
             ListView.builder(
               padding: EdgeInsets.zero,
               physics: NeverScrollableScrollPhysics(),
@@ -71,15 +65,9 @@ class _MyHomePageState extends State<MyHomePage> {
               itemCount: data.length,
               itemBuilder: (_, int index) {
                 return Container(
-                  decoration: BoxDecoration(
-                    color: Colors.yellow,
-                    border: Border.all(
-                      color: Colors.black, 
-                        width: 1
-                    ),
-                  ),
                   width: double.infinity,
-                  height: 200,
+                  height: 150,
+                  child: Center(child: Text('Item # $index'))
                 );
               }
             )
